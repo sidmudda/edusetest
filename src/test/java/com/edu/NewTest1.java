@@ -37,7 +37,7 @@ public class NewTest1 {
   public void verifytext() {
 	  
         String toBeVerified = "This is about page";
-	String actual = driver.findElement(By.cssSelector("p")).gettext();	
+	String actual = driver.findElement(By.cssSelector("p")).getText();	
         Assert.assertEquals(actual, toBeVerified);
 	    System.out.println("Test Successful."); 
   }
