@@ -7,48 +7,23 @@ import java.util.concurrent.TimeUnit;
 import java.util.Map;
 import java.util.HashMap;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 
-public class NewTest2 {
-	WebDriver driver;
-
-  @BeforeMethod
-  public void launch() {
+public class NewTest1 {
+  public void verifyabout() {
 	  
 	    System.setProperty("webdriver.chrome.driver", "/usr/bin/chromedriver");
-	       ChromeOptions chromeOptions = new ChromeOptions();
-	       chromeOptions.addArguments("--headless");
-               chromeOptions.addArguments("--no-sandbox");
-               WebDriver driver = new ChromeDriver(chromeOptions);
-	       driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-	       driver.get("http://35.190.172.87:8081/");
-
-	  }
-  
-  @Test
-  public void verifyurl() {
-	  
-	    String x = driver.getCurrentUrl();
-	    System.out.println(x);
-	    //Assert.assertEquals(x, "http://35.190.172.87:8081/");
+	    ChromeDriver driver = new ChromeDriver();
+            driver.get("http://35.190.172.87:8081/");
+	    driver.manage().window().maximize();
+	    driver.findElement(By.id("About Us")).click();
+	    String toBeVerified = "This is about page";
+	    String actual = driver.findElement(By.cssSelector("p")).getText();	
+            Assert.assertEquals(actual, toBeVerified);
+	    driver.close();	    
   }
-  
-  @Test
-  public void verifytitle() {
-	  
-        String a = driver.getTitle();
-        System.out.println(a);
-        //Assert.assertEquals(a, "PHP");
-	//System.out.println("Test Successful.");    
-  }
-  
-  @AfterMethod
-  public void close() {
-	  
-	  driver.close();
-  }
-
 }
