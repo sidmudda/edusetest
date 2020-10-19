@@ -19,7 +19,7 @@ public class NewTest2 {
 	    System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
 	    driver = new ChromeDriver();
 	    driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-	    driver.get("https://facebook.com");
+	    driver.get("http://35.190.172.87:8081/");
 
 	  }
   
@@ -28,7 +28,7 @@ public class NewTest2 {
 	  
 	    String x = driver.getCurrentUrl();
 	    System.out.println(x);
-	    //Assert.assertEquals(x, "https://www.facebook.com/");
+	    //Assert.assertEquals(x, "http://35.190.172.87:8081/");
   }
   
   @Test
@@ -36,7 +36,7 @@ public class NewTest2 {
 	  
         String a = driver.getTitle();
         System.out.println(a);
-        //Assert.assertEquals(a, "Facebook");
+        //Assert.assertEquals(a, "PHP");
 	//System.out.println("Test Successful.");    
   }
   
