@@ -14,42 +14,16 @@ import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 
 public class NewTest1 {
-	
-  WebDriver driver;
- 
-  @BeforeMethod
-  public void beforeMethod() {
+  public void verifyabout() {
 	  
 	    System.setProperty("webdriver.chrome.driver", "/usr/bin/chromedriver");
-	    ChromeOptions chromeOptions = new ChromeOptions();
-            chromeOptions.addArguments("--headless");
-            chromeOptions.addArguments("--no-sandbox");
-            WebDriver driver = new ChromeDriver(chromeOptions);	  
-		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-		driver.get("http://35.190.172.87:8081/");
+	    ChromeDriver driver = new ChromeDrive();
+            driver.get("http://35.190.172.87:8081/");
+	    driver.manage().window().maximize();
+	    driver.findElement(By.id("About Us")).click();
+	    String toBeVerified = "This is about page";
+	    String actual = driver.findElement(By.cssSelector("p")).getText();	
+            Assert.assertEquals(actual, toBeVerified);
+	    driver.close();	    
   }
-  
-  @Test
-  public void aboutus() {
-	  
-	 	
-	  	driver.findElement(By.id("About Us")).click();
-		
-			
-	}
-  
-  @Test
-  public void verifytext() {
-	  
-        String toBeVerified = "This is about page";
-	String actual = driver.findElement(By.cssSelector("p")).getText();	
-        Assert.assertEquals(actual, toBeVerified);
-	    System.out.println("Test Successful."); 
-  }
-  
-  @AfterMethod
-  public void afterMethod() {  
-	  driver.close();
-  }
-
 }
