@@ -21,27 +21,24 @@ public class NewTest1 {
 	    System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
 	    driver = new ChromeDriver();
 		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-		driver.get("http://192.168.198.146:8090/sampleapp/");
+		driver.get("http://35.190.172.87:8081/");
   }
   
   @Test
-  public void addContact() {
+  public void aboutus() {
 	  
-	 	driver.findElement(By.xpath("//div[@class = 'v-button v-widget']")).click();
-		driver.findElement(By.id("gwt-uid-5")).sendKeys("Arjun");
-		driver.findElement(By.id("gwt-uid-7")).sendKeys("E");
-		driver.findElement(By.id("gwt-uid-9")).sendKeys("805983095");
-		driver.findElement(By.id("gwt-uid-11")).sendKeys("test@gmail.com");
-		driver.findElement(By.xpath("//div[@class = 'v-button v-widget primary v-button-primary']")).click();
+	 	
+	  	driver.findElement(By.id("About Us")).click();
+		
 			
 	}
   
   @Test
-  public void verifytitle() {
+  public void verifytext() {
 	  
-        String a = driver.getTitle();
-        System.out.println(a);
-        //Assert.assertEquals(a, "sampleapp");
+        String toBeVerified = "This is about page"
+	String actual = driver.findElement(By.cssSelector("p")).gettext();	
+        Assert.assertEquals(actual, toBeVerified);
 	    System.out.println("Test Successful."); 
   }
   
