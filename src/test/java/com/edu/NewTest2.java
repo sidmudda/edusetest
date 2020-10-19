@@ -19,10 +19,10 @@ public class NewTest2 {
   public void launch() {
 	  
 	    System.setProperty("webdriver.chrome.driver", "/usr/bin/chromedriver");
-	    ChromeOptions chromeOptions = new ChromeOptions();
-	    chromeOptions.addArguments("--headless");
-            chromeOptions.addArguments("--no-sandbox");
-            WebDriver driver = new ChromeDriver(chromeOptions);
+	       ChromeOptions chromeOptions = new ChromeOptions();
+	       chromeOptions.addArguments("--headless");
+               chromeOptions.addArguments("--no-sandbox");
+               WebDriver driver = new ChromeDriver(chromeOptions);
 	       driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 	       driver.get("http://35.190.172.87:8081/");
 
