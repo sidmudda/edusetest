@@ -17,7 +17,7 @@ public class NewTest1 {
   public void verifyabout() {
 	  
 	    System.setProperty("webdriver.chrome.driver", "/usr/bin/chromedriver");
-	    ChromeDriver driver = new ChromeDrive();
+	    ChromeDriver driver = new ChromeDriver();
             driver.get("http://35.190.172.87:8081/");
 	    driver.manage().window().maximize();
 	    driver.findElement(By.id("About Us")).click();
