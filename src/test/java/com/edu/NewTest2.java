@@ -13,7 +13,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 
-public class NewTest1 {
+public class NewTest2 {
   public void verifyabout() {
 	  
 	    System.setProperty("webdriver.chrome.driver", "/usr/bin/chromedriver");
